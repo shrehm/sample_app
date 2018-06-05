@@ -14,7 +14,7 @@ class ActiveSupport::TestCase
     !session[:user_id].nil?
   end
   
-  # Log in as a particular user.
+  # Log in as a particular user. Controller sessions tests login only
   def log_in_as(user)
     session[:user_id] = user.id
   end
@@ -22,7 +22,7 @@ end
 
 class ActionDispatch::IntegrationTest
 
-  # Log in as a particular user.
+  # Log in as a particular user. Integration sessions test login
   def log_in_as(user, password: 'password', remember_me: '1')
     post login_path, params: { session: { email: user.email,
                                           password: password,
